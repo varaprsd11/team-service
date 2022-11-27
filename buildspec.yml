@@ -11,4 +11,6 @@ phases:
 artifacts:
   files:
     - target/team-service.jar
+    - scripts/*.sh
+    - appspec.yml
   discard-paths: yes
