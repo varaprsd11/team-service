@@ -1,22 +1,27 @@
 pipeline {
     agent any
-
-    tools {
-        maven "3.6.0" // You need to add a maven with name "3.6.0" in the Global Tools Configuration page
-    }
-
     stages {
-        stage("Build") {
+        stage('git repo & clean') {
             steps {
-                sh "mvn -version"
-                sh "mvn clean install"
+               // bat "rmdir  /s /q TicketBookingServiceJunitTesting"
+                bat "git clone https://github.com/varaprsd11/team-service.git"
+                bat "mvn clean -f team-service"
             }
         }
-    }
-
-    post {
-        always {
-            cleanWs()
+        stage('install') {
+            steps {
+                bat "mvn install -f team-service"
+            }
+        }
+        stage('test') {
+            steps {
+                bat "mvn test -f team-service"
+            }
+        }
+        stage('package') {
+            steps {
+                bat "mvn package -f team-service"
+            }
         }
     }
 }
