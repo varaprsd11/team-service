@@ -14,7 +14,7 @@
 	<name>teamrepresent</name>
 	<description>Team Information </description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,7 +54,9 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
-					</excludes>					
+					</excludes>						
+                <source>1.8</source>
+                <target>1.8</target>            				
 				</configuration>
 			</plugin>
 		</plugins>
